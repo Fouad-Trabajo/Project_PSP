@@ -15,11 +15,19 @@ fun main() {
                 getPronostico()
             }
 
-
             val temperature: Deferred<String> = async {
-                getTemperature()
+                try {
+                    getTemperature()
+                } catch (e: AssertionError) {
+                    //Log.error("Exception capturada en temperatura: $e")
+                    "-\u00b0C"
+                }
             }
-            println("${pronostico.await()} ${temperature.await()}")
+
+            delay(200)
+            //temperature.cancel() //Si cancelamos una llamada, luego no podemos utilizarlo abajo
+
+            println("${pronostico.await()} ${temperature.await()} ")
             println("!Disfruta del día")
         }
 
@@ -32,6 +40,13 @@ fun main() {
     println("El tiempo de ejecución es de ${time / 1000.0} segundos")
 }
 
+
+suspend fun getWeatherReport() = coroutineScope {
+    val pronostico = async { getPronostico() }
+    val temperature = async { getTemperature() }
+    delay(200)
+}
+
 suspend fun getPronostico(): String {
     delay(1000)
     return ("Soleado")
@@ -39,5 +54,6 @@ suspend fun getPronostico(): String {
 
 suspend fun getTemperature(): String {
     delay(1000)
+    //throw AssertionError("Temperatura no encontrada")
     return ("30\u00b0 C")
 }
