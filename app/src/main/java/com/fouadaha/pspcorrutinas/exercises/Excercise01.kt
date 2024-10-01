@@ -1,4 +1,4 @@
-package com.fouadaha.pspcorrutinas.ui.exercises
+package com.fouadaha.pspcorrutinas.exercises
 
 import kotlinx.coroutines.*
 

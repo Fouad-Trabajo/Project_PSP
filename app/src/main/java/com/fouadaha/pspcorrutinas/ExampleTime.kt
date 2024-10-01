@@ -27,6 +27,8 @@ fun main() {
             delay(200)
             //temperature.cancel() //Si cancelamos una llamada, luego no podemos utilizarlo abajo
 
+            // Es útil cancelar un proceso cuando este tarde demasiado, por ejemplo
+
             println("${pronostico.await()} ${temperature.await()} ")
             println("!Disfruta del día")
         }
