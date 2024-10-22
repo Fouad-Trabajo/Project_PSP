@@ -3,7 +3,6 @@ package com.fouadaha.pspcorrutinas.ejerciciogordo
 import kotlinx.coroutines.*
 
 fun main() = runBlocking {
-    println("INICIO")
     val job = Job()
     val scope = CoroutineScope(Dispatchers.Default + job)
     val jobs = mutableListOf<Deferred<Unit>>()
