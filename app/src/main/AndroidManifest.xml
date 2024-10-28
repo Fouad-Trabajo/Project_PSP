@@ -16,7 +16,7 @@
         android:theme="@style/Theme.PSPCorrutinas"
         tools:targetApi="31">
         <activity
-            android:name="com.fouadaha.MainActivity"
+            android:name=".ejerciciogordo.Tarea6"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
