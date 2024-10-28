@@ -11,6 +11,7 @@ import java.io.IOException
  * no funcione o no se encuentra disponible,
  * no detenga la ejecución del programa
  */
+
 // CONSULTAS A LAS APIS
 suspend fun getCatFact(): String {
     return try {
@@ -73,7 +74,7 @@ fun main() = runBlocking {
          * En este caso, si las llamadas a las api, tardan demasiado(más de 1.13 segundos)
          * se cancela la llamada de todas las apis y se cancela el job
          */
-        delay(2000) //Cambia a un segundo para ver como se cancelan las llamadas a las apis
+        delay(1000) //Cambia el valor para ver como se cancelan las llamadas a las apis
         job.cancel()
 
         //await para esperar a que terminen las llamadas
